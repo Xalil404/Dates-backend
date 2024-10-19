@@ -11,23 +11,24 @@
 
 {% block content %}
 
-<div class="container mt-5"></div>
+<div class="container mt-5">
     <div class="row">
-
+        <!--Section 1-->
         <!-- Left Column for Text and Button -->
         <div class="col-md-6 d-flex align-items-center">
             <div class="content-wrapper px-5">
                 <div>
-                    <h1 class="display-4 mb-4 fw-bold"> The world’s destination for web talent</h1>
-                    <h5 class="mb-4">Get inspired by the works of millions of top-rated web developers from around the world.</h5>
+                    <h1 class="display-4 mb-4 fw-bold"> Never forget an important date again</h1>
+                    <h5 class="mb-4">Mark all important birthdays, anniversaries and holidays all in one place.</h5>
                     <div class="text-center">
-       
                         {% if user.is_authenticated %}
-                        <a href="" class="btn btn-dark btn-lg mt-5 rounded-pill px-5">Explore Projects</a>
-                    {% else %}
-                        <a href="{% url 'account_signup' %}" class="btn btn-dark btn-lg mt-5 rounded-pill px-5">Get Started</a>
-                    {% endif %}
-                    
+                        <a href="" class="btn btn-lg mt-5 rounded-pill px-5"
+                            style="background-color: #E8BF73; color: black;">Go to Dashboard</a>
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="btn btn-lg mt-5 rounded-pill px-5"
+                            style="background-color: #E8BF73; color: black;">Get Started</a>
+                        {% endif %}
+
                     </div>
                 </div>
             </div>
@@ -35,20 +36,83 @@
 
         <!-- Right Column for Image -->
         <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726679728/4_kljgyn.png" class="img-fluid" alt="Web Talent Image">
+            <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729347868/computer-icon_1_1_niq4si.png"
+                class="img-fluid" alt="Web Talent Image">
+        </div>
+
+        <!--Section 2-->
+        <div class="row">
+            <!-- Left Column for Image -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729348179/burger_1_vv4v6j.png"
+                    class="img-fluid" alt="Web Talent Image">
+            </div>
+
+            <!-- Right Column for Text and Button -->
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="content-wrapper px-5">
+                    <div>
+                        <h1 class="display-4 mb-4 fw-bold">Your most important birthdays in one place</h1>
+                        <h5 class="mb-4">Mark all of your important birthdays and never miss a reminder.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Section 3-->
+        <div class="row justify-content-center mt-5">
+            <!-- Center Column for Image -->
+            <div class="col-md-6 text-center">
+                <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729348455/Group_wgoe2u.png"
+                    class="img-fluid" alt="Web Talent Image">
+                <!-- Text Under Image -->
+                <h1 class="display-4 mb-4 fw-bold mt-4">Never forget mother’s day again</h1>
+            </div>
+        </div>
+        <!--Section 4-->
+        <div class="row align-items-center">
+            <!-- Left Column for Text -->
+            <div class="col-md-6">
+                <div class="content-wrapper px-5">
+                    <h1 class="display-4 mb-4 fw-bold">Holidays coming up?</h1>
+                    <h5 class="mb-4">Plan for your favourite holidays in advance to make sure your guests have the best
+                        experience possible.</h5>
+
+                </div>
+            </div>
+
+            <!-- Right Column for Image -->
+            <div class="col-md-6 d-flex justify-content-center">
+                <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729348664/attachment-pin-icon_1_hepy1a.png"
+                    class="img-fluid" alt="Web Talent Image">
+            </div>
+        </div>
+
+        <!--Section 5 - Get mobile app-->
+        <div class="container-fluid p-0 text-center">
+            <h1 class="display-5 fw-bold mb-5">Get the Dates mobile app for iPhone</h1>
+            <!-- Full-Width Image -->
+            <div class="row">
+                <div class="col-12">
+                    <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729349899/smartmockups_m2ga9qca_thokm3.jpg"
+                        class="img-fluid w-100" alt="Full Width Image">
+                </div>
+            </div>
+
+            <!-- Text Below the Image -->
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <div class="my-5">
+                        <!-- Button to link to App Store -->
+                        <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank">
+                            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1314144000&h=91ef6f52d049d3387a50498048775082"
+                                alt="Download on the App Store" style="width: 200px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
