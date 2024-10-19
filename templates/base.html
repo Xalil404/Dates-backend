@@ -25,9 +25,11 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<!--The django template syntax is to not show header and footer on allauth pages-->
+<body class="d-flex flex-column h-100 main-bg {% block body_class %}base-template{% endblock body_class %}">
 
     <!-- Navigation -->
+    <div class="navcolor">
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 sticky-top">
         <div class="container-fluid">
             <!-- Hamburger Menu (Mobile View) -->
@@ -109,6 +111,7 @@
             </div>
         </div>
     </nav>
+    </div>
     
     <!--Sign in / sign out notifications-->
     <div class="container">

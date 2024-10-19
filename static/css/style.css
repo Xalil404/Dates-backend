@@ -14,6 +14,14 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
 }
 
+.navcolor {
+    background-color: #F9FAFC;
+}
+
+footer {
+    background-color: #F9FAFC;
+}
+
 /* Home page css for cover template */
 .cover-container {
     position: relative;
@@ -25,4 +33,70 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     background: url('https://fastly.picsum.photos/id/46/3264/2448.jpg?hmac=ZHE8nk-Q9uRp4MxgKNvN7V7pYFvA-9BCv99ltY3HBv4') no-repeat center center;
     background-size: cover;
+}
+
+/*                                                                          Allauth Templates */
+.card-header-custom {
+    background-color: #F9FAFC;
+}
+
+.card-body {
+    background-color: #F9FAFC;
+}
+
+.card-body form .form-group {
+    margin-bottom: 1rem; /* To add space between input fields */
+}
+
+label .asteriskField {
+    display: none; /* To remove astrix from labels of input fields */
+}
+
+/* Social sign up & Sign in buttons */
+.social-login-buttons .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 12px
+}
+
+.social-login-buttons .btn i {
+    margin-right: 8px;
+}
+
+/* Divider line under Social sign up buttons */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.divider::before {
+    content: "";
+    display: block;
+    border-top: 1px solid #ccc; /* Adjust color as needed */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.divider-text {
+    display: inline-block;
+    background: #F9FAFC; /* Adjust background color as needed */
+    padding: 0 10px; /* Adjust padding as needed */
+    position: relative;
+    z-index: 2;
+}
+
+/*hide header and footer on sign up/login pages*/
+.login-page .navbar,
+    .login-page footer {
+        display: none !important;
+}
+
+.card-logout {
+    background-color: #F9FAFC;
 }

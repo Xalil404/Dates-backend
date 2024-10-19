@@ -1,61 +1,71 @@
 {% extends "base.html" %}
+{% block body_class %}login-page{% endblock body_class %}
 {% load i18n %}
-{% load allauth account %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+
+
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
+
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% setvar link %}
-            <a href="{{ signup_url }}">
-            {% endsetvar %}
-            {% setvar end_link %}
-            </a>
-        {% endsetvar %}
-        {% element p %}
-            {% blocktranslate %}If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.{% endblocktranslate %}
-        {% endelement %}
-        {% url 'account_login' as login_url %}
-        {% element form form=form method="post" action=login_url tags="entrance,login" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button type="submit" tags="prominent,login" %}
-                    {% trans "Sign In" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button_group vertical=True %}
-            {% if PASSKEY_LOGIN_ENABLED %}
-                {% element button type="submit" form="mfa_login" id="passkey_login" tags="prominent,login,outline,primary" %}
-                    {% trans "Sign in with a passkey" %}
-                {% endelement %}
-            {% endif %}
-            {% if LOGIN_BY_CODE_ENABLED %}
-                {% element button href=request_login_code_url tags="prominent,login,outline,primary" %}
-                    {% trans "Mail me a sign-in code" %}
-                {% endelement %}
-            {% endif %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
+<div class="container mt-5">
+    <div class="row">
+
+        <!-- Left Column for Image -->
+
+        <div class="col-md-6 d-none d-md-block">
+            <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729335598/flag-icon_1_qrosti.png" class="img-fluid" alt="Login Image">
+        </div>
+
+
+
+        <!-- Right Column for Login Form -->
+        <div class="col-md-6">
+            <div class="card" style="border: none;">
+                <div class="card-header text-center card-header-custom">
+                    <h2>{% trans "Sign in to Dates" %}</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'account_login' %}">
+                        {% csrf_token %}
+
+                        <!-- Social Media Login Buttons -->
+                        <div class="social-login-buttons text-center mb-3">
+
+                            <a href="" type="button" class="btn btn-danger btn-block mb-4">
+                                <i class="fab fa-google"></i> {% trans "Login with Google" %}
+                            </a>
+                            
+                        </div>
+
+                        <!-- Divider with text -->
+                        <div class="text-center mb-5">
+                            <div class="divider">
+                                <span class="divider-text">{% trans 'or sign in with email' %}</span>
+                            </div>
+                        </div>
+
+                        {{ form|crispy }}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <div class="social-login-buttons">
+                        <button type="submit" class="btn btn-lg mx-auto d-block" style="background-color: #E8BF73; color: black;">{% trans "Sign In" %}</button>
+                    </div>
+                    </form>
+                    <hr>
+                    <p class="text-center">
+                        <a href="{% url 'account_reset_password' %}" class="text-dark">{% trans "Forgot Password?" %}</a>
+                    </p>
+                    <p class="text-center">
+                        {% trans "Don't have an account?" %} <a href="{{ signup_url }}" class="text-dark">{% trans "Sign up" %}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
-{% block extra_body %}
-    {{ block.super }}
-    {% if PASSKEY_LOGIN_ENABLED %}
-        {% include "mfa/webauthn/snippets/login_script.html" with button_id="passkey_login" %}
-    {% endif %}
-{% endblock %}
