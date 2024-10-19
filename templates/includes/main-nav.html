@@ -1,0 +1,35 @@
+<!-- web-navigation.html -->
+<div class="navcolor">
+    <nav class="navbar navbar-expand-lg navbar-light py-3 sticky-top">
+        <div class="container-fluid">
+            <!-- Logo (Top Left) -->
+            <a class="navbar-brand ms-5 order-2 order-lg-1" href="{% url 'home' %}">
+                <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729341444/Screenshot_2024-10-19_at_1.36.53_PM-removebg-preview_lr1fpv.png"
+                    alt="Logo" class="logo-image" style="width: 200px">
+            </a>
+
+            <!-- Navbar Links (Top Left) -->
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="navbarText">
+                <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" href="">Dashboard</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link active" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <!-- Sign In and Sign Up Buttons (Top Right) -->
+            <div class="d-flex order-2 order-lg-3">
+                {% if not user.is_authenticated %}
+                <a class="nav-link d-none d-lg-block text-dark" href="{% url 'account_login' %}">Sign in</a>
+                <a class="nav-link btn btn-sm rounded-pill px-4 me-2" style="background-color: #E8BF73; color: black;"
+                    href="{% url 'account_signup' %}">Get Started</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</div>

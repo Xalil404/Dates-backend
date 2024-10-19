@@ -22,18 +22,7 @@ footer {
     background-color: #F9FAFC;
 }
 
-/* Home page css for cover template */
-.cover-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background: url('https://fastly.picsum.photos/id/46/3264/2448.jpg?hmac=ZHE8nk-Q9uRp4MxgKNvN7V7pYFvA-9BCv99ltY3HBv4') no-repeat center center;
-    background-size: cover;
-}
+
 
 /*                                                                          Allauth Templates */
 .card-header-custom {
