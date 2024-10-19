@@ -18,3 +18,7 @@ django-allauth==65.0.2
 whitenoise==6.7.0
 django-crispy-forms==2.3
 crispy-bootstrap4==2024.10
+PyJWT==2.9.0
+cryptography==43.0.3
+cffi==1.17.1
+pycparser==2.22
