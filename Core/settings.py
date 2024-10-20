@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'home',
     'rest_framework',
     'BirthdaysAPI',
+    'AnniversariesAPI',
 ]
 
 
