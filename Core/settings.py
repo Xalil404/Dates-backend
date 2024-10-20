@@ -29,8 +29,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
@@ -58,7 +58,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'home',
+    'rest_framework',
+    'BirthdaysAPI',
 ]
+
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
