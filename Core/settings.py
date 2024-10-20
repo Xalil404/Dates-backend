@@ -29,8 +29,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = False
+#DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'BirthdaysAPI',
     'AnniversariesAPI',
     'HolidaysAPI',
+    'corsheaders',
 ]
 
 
@@ -126,6 +127,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -136,6 +138,17 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React app URL for local development
+    "https://your-production-domain.com",  # Add your production URL here
+]
+
+
+# Not recommended for production; Setting CORS_ALLOW_ALL_ORIGINS = True will allow any 
+# origin to access your API. This is useful for development purposes when you're testing 
+# with multiple front-end applications, but it's not recommended for production due to security risks.
+#CORS_ALLOW_ALL_ORIGINS = True  
 
 ROOT_URLCONF = 'Core.urls'
 
