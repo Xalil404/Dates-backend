@@ -25,5 +25,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('api/', include('BirthdaysAPI.urls')),
     path('api/', include('AnniversariesAPI.urls')),
+    path('api/', include('HolidaysAPI.urls')),
 ]
 handler404 = 'Core.views.handler404'
