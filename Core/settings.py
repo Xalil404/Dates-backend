@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'BirthdaysAPI',
     'AnniversariesAPI',
     'HolidaysAPI',
-    'corsheaders',
+    'corsheaders', # to allow requests from your React app to the Django API
+    'drf_yasg', #to generate Swagger UI documentation for your Django REST API
 ]
 
 
