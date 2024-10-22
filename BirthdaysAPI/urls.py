@@ -1,6 +1,5 @@
-# birthdays/urls.py
 from django.urls import path
-from .views import BirthdayListCreateView, BirthdayRetrieveUpdateDestroyView
+from .views import BirthdayListCreateView, BirthdayRetrieveUpdateDestroyView  # Import existing views
 
 urlpatterns = [
     path('birthdays/', BirthdayListCreateView.as_view(), name='birthday-list-create'),

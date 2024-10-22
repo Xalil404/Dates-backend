@@ -2,11 +2,12 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import Birthday
 from .serializers import BirthdaySerializer
-
+from rest_framework.permissions import IsAuthenticated
 
 # List all birthdays for the authenticated user or create a new birthday
 class BirthdayListCreateView(generics.ListCreateAPIView):
     serializer_class = BirthdaySerializer
+    permission_classes = [IsAuthenticated]  # Add permission
 
     def get_queryset(self):
         # Only return birthdays for the authenticated user
@@ -16,10 +17,10 @@ class BirthdayListCreateView(generics.ListCreateAPIView):
         # Set the user to the authenticated user when creating a new birthday
         serializer.save(user=self.request.user)
 
-
 # Retrieve, update, or delete a specific birthday by ID
 class BirthdayRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BirthdaySerializer
+    permission_classes = [IsAuthenticated]  # Add permission
 
     def get_queryset(self):
         # Only return birthdays for the authenticated user
