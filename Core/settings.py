@@ -146,6 +146,11 @@ CORS_ALLOWED_ORIGINS = [
     "https://your-production-domain.com",  # Add your production URL here
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True  # Important for sending cookies
 
 # Not recommended for production; Setting CORS_ALLOW_ALL_ORIGINS = True will allow any 
 # origin to access your API. This is useful for development purposes when you're testing 
