@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'home',
     'rest_framework',
+    'rest_framework.authtoken',  # Token-based authentication
+    'dj_rest_auth',              # REST API auth views
     'BirthdaysAPI',
     'AnniversariesAPI',
     'HolidaysAPI',
@@ -66,6 +68,17 @@ INSTALLED_APPS = [
     'corsheaders', # to allow requests from your React app to the Django API
     'drf_yasg', #to generate Swagger UI documentation for your Django REST API
 ]
+
+
+# REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 
 
 MESSAGE_TAGS = {
@@ -148,6 +161,7 @@ CORS_ALLOWED_ORIGINS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
+    "https://your-production-domain.com",  # Add production domain here
 ]
 
 CORS_ALLOW_CREDENTIALS = True  # Important for sending cookies
